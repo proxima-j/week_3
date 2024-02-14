@@ -1,0 +1,123 @@
+[
+    {
+        "id": "6d7d8082635852a7",
+        "type": "tab",
+        "label": "week 3 HW",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "5d34c8b98aed5c1a",
+        "type": "tcp in",
+        "z": "6d7d8082635852a7",
+        "name": "",
+        "server": "server",
+        "host": "",
+        "port": "8000",
+        "datamode": "stream",
+        "datatype": "utf8",
+        "newline": "\\r\\n",
+        "topic": "",
+        "trim": false,
+        "base64": false,
+        "tls": "",
+        "x": 380,
+        "y": 280,
+        "wires": [
+            [
+                "0cac5881527b02a5",
+                "edc3cd25324c387f",
+                "8474587daa3ee2d5"
+            ]
+        ]
+    },
+    {
+        "id": "0cac5881527b02a5",
+        "type": "websocket out",
+        "z": "6d7d8082635852a7",
+        "name": "",
+        "server": "056ed2c487495e85",
+        "client": "",
+        "x": 810,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "edc3cd25324c387f",
+        "type": "debug",
+        "z": "6d7d8082635852a7",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "8474587daa3ee2d5",
+        "type": "function",
+        "z": "6d7d8082635852a7",
+        "name": "function 2",
+        "func": "msg.payload = {value:msg.payload, srvtime:Date.now()};\nreturn msg",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 560,
+        "wires": [
+            [
+                "6d8bfebe6b608318",
+                "60468b21cde9aac3"
+            ]
+        ]
+    },
+    {
+        "id": "6d8bfebe6b608318",
+        "type": "file",
+        "z": "6d7d8082635852a7",
+        "name": "connected_devices_week_3",
+        "filename": "C:\\Users\\12235\\Documents\\Connected_devices\\week_1\\connected_devices_week_3.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 760,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "60468b21cde9aac3",
+        "type": "debug",
+        "z": "6d7d8082635852a7",
+        "name": "debug 8",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "056ed2c487495e85",
+        "type": "websocket-listener",
+        "path": "week3_HW",
+        "wholemsg": "false"
+    }
+]
